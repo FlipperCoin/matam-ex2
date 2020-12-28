@@ -95,14 +95,21 @@ except __builtin__.Exception:
         pass
     _newclass = 0
 
-
-def dateCreate(day, month, year):
-    return _event_manager.dateCreate(day, month, year)
-dateCreate = _event_manager.dateCreate
-
-def dateDestroy(date):
-    return _event_manager.dateDestroy(date)
-dateDestroy = _event_manager.dateDestroy
+EM_SUCCESS = _event_manager.EM_SUCCESS
+EM_OUT_OF_MEMORY = _event_manager.EM_OUT_OF_MEMORY
+EM_NULL_ARGUMENT = _event_manager.EM_NULL_ARGUMENT
+EM_INVALID_DATE = _event_manager.EM_INVALID_DATE
+EM_INVALID_EVENT_ID = _event_manager.EM_INVALID_EVENT_ID
+EM_EVENT_ALREADY_EXISTS = _event_manager.EM_EVENT_ALREADY_EXISTS
+EM_EVENT_ID_ALREADY_EXISTS = _event_manager.EM_EVENT_ID_ALREADY_EXISTS
+EM_EVENT_NOT_EXISTS = _event_manager.EM_EVENT_NOT_EXISTS
+EM_EVENT_ID_NOT_EXISTS = _event_manager.EM_EVENT_ID_NOT_EXISTS
+EM_INVALID_MEMBER_ID = _event_manager.EM_INVALID_MEMBER_ID
+EM_MEMBER_ID_ALREADY_EXISTS = _event_manager.EM_MEMBER_ID_ALREADY_EXISTS
+EM_MEMBER_ID_NOT_EXISTS = _event_manager.EM_MEMBER_ID_NOT_EXISTS
+EM_EVENT_AND_MEMBER_ALREADY_LINKED = _event_manager.EM_EVENT_AND_MEMBER_ALREADY_LINKED
+EM_EVENT_AND_MEMBER_NOT_LINKED = _event_manager.EM_EVENT_AND_MEMBER_NOT_LINKED
+EM_ERROR = _event_manager.EM_ERROR
 
 def createEventManager(date):
     return _event_manager.createEventManager(date)
@@ -116,9 +123,73 @@ def emAddEventByDate(em, event_name, date, event_id):
     return _event_manager.emAddEventByDate(em, event_name, date, event_id)
 emAddEventByDate = _event_manager.emAddEventByDate
 
+def emAddEventByDiff(em, eventName, days, event_id):
+    return _event_manager.emAddEventByDiff(em, eventName, days, event_id)
+emAddEventByDiff = _event_manager.emAddEventByDiff
+
+def emRemoveEvent(em, event_id):
+    return _event_manager.emRemoveEvent(em, event_id)
+emRemoveEvent = _event_manager.emRemoveEvent
+
+def emChangeEventDate(em, event_id, new_date):
+    return _event_manager.emChangeEventDate(em, event_id, new_date)
+emChangeEventDate = _event_manager.emChangeEventDate
+
+def emAddMember(em, member_name, member_id):
+    return _event_manager.emAddMember(em, member_name, member_id)
+emAddMember = _event_manager.emAddMember
+
+def emAddMemberToEvent(em, member_id, event_id):
+    return _event_manager.emAddMemberToEvent(em, member_id, event_id)
+emAddMemberToEvent = _event_manager.emAddMemberToEvent
+
+def emRemoveMemberFromEvent(em, member_id, event_id):
+    return _event_manager.emRemoveMemberFromEvent(em, member_id, event_id)
+emRemoveMemberFromEvent = _event_manager.emRemoveMemberFromEvent
+
+def emTick(em, days):
+    return _event_manager.emTick(em, days)
+emTick = _event_manager.emTick
+
+def emGetEventsAmount(em):
+    return _event_manager.emGetEventsAmount(em)
+emGetEventsAmount = _event_manager.emGetEventsAmount
+
+def emGetNextEvent(em):
+    return _event_manager.emGetNextEvent(em)
+emGetNextEvent = _event_manager.emGetNextEvent
+
 def emPrintAllEvents(em, file_name):
     return _event_manager.emPrintAllEvents(em, file_name)
 emPrintAllEvents = _event_manager.emPrintAllEvents
+
+def emPrintAllResponsibleMembers(em, file_name):
+    return _event_manager.emPrintAllResponsibleMembers(em, file_name)
+emPrintAllResponsibleMembers = _event_manager.emPrintAllResponsibleMembers
+
+def dateCreate(day, month, year):
+    return _event_manager.dateCreate(day, month, year)
+dateCreate = _event_manager.dateCreate
+
+def dateDestroy(date):
+    return _event_manager.dateDestroy(date)
+dateDestroy = _event_manager.dateDestroy
+
+def dateCopy(date):
+    return _event_manager.dateCopy(date)
+dateCopy = _event_manager.dateCopy
+
+def dateGet(date, day, month, year):
+    return _event_manager.dateGet(date, day, month, year)
+dateGet = _event_manager.dateGet
+
+def dateCompare(date1, date2):
+    return _event_manager.dateCompare(date1, date2)
+dateCompare = _event_manager.dateCompare
+
+def dateTick(date):
+    return _event_manager.dateTick(date)
+dateTick = _event_manager.dateTick
 # This file is compatible with both classic and new-style classes.
 
 
